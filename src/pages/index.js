@@ -3,82 +3,6 @@ import { StaticQuery, graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import WebFont from "webfontloader";
 
-const pageStyles = {
-  fontFamily: "Inter",
-  fontWeight: 400,
-  fontSize: "25px",
-  lineHeight: "35px",
-  maxWidth: "1336px",
-  padding: "0 20px",
-  margin: "0 auto",
-  boxSizing: "border-box",
-};
-
-const headerStyles = {
-  display: "flex",
-  justifyContent: "space-between",
-  paddingTop: "50px",
-};
-
-const nameStyles = {
-  fontWeight: 700,
-  fontSize: "40px",
-  lineHeight: "40px",
-  marginTop: "40px",
-};
-
-const roleStyles = {
-  fontSize: "35px",
-  lineHeight: "37px",
-  paddingTop: "10px",
-};
-
-const informStyles = {
-  marginTop: "30px",
-  display: "flex",
-  justifyContent: "space-between",
-};
-
-const maininfromStyles = {
-  maxWidth: "800px"
-}
-
-const itemStyles = {
-  marginBottom: "30px",
-};
-
-const subtitleStyles = {
-  fontSize: "18px",
-  margintop: "20px",
-  letterSpacing: "5px",
-  color: "#73808D",
-  textTransform: "uppercase",
-};
-
-const baldinfoStyles = {
-  fontWeight: "700",
-};
-
-const dateStyles = {
-  color: "#73808D",
-  fontSize: "20px",
-};
-
-const extrainfromStyles = {
-  marginTop: "35px",
-  marginLeft: "10px",
-  color: "#73808D",
-  maxWidth: "300px"
-};
-
-const extraitemStyles = {
-  marginBottom: "30px"
-}
-
-const extrasubtStyles = {
-  fontWeight: 600
-}
-
 const IndexPage = () => {
   const { allStrapiVova } = useStaticQuery(graphql`
     query MyQuery {
@@ -119,58 +43,132 @@ const IndexPage = () => {
     },
   });
 
+  const Page = styled.div`
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 35px;
+    max-width: 1336px;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  `;
+
+  const Header = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+  `;
+
+  const Name = styled.div`
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+    margin-top: 40px;
+  `;
+
+  const Role = styled.div`
+    font-size: 35px;
+    line-height: 37px;
+    padding-top: 10px;
+  `;
+
+  const Info = styled.div`
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  `;
+
+  const MainInfo = styled.div`
+    max-width: 800px;
+  `;
+
+  const InfoItem = styled.div`
+    margin-bottom: 30px;
+  `;
+
+  const Subtitle = styled.div`
+    font-size: 18px;
+    margin-top: 20px;
+    letter-spacing: 5px;
+    color: #73808d;
+    text-transform: uppercase;
+  `;
+
+  const InfoName = styled.div`
+    font-weight: 700;
+  `;
+
+  const InfoDate = styled.div`
+    color: #73808d;
+    font-size: 20px;
+  `;
+
+  const ExtraInfo = styled.div`
+    margin-top: 35px;
+    margin-left: 10px;
+    color: #73808d;
+    max-width: 300px;
+  `;
+
+  const ExtraInfoItem = styled.div`
+    margin-bottom: 30px;
+  `;
+
+  const ExtraInfoItemSubtitle = styled.div`
+    font-weight: 600;
+  `;
+
   return (
-    <main style={pageStyles}>
-      <div style={headerStyles}>
+    <Page>
+      <Header>
         <div>
-          <div style={nameStyles}>{info.Name}</div>
-          <div style={roleStyles}>{info.Role}</div>
+          <Name>{info.Name}</Name>
+          <Role>{info.Role}</Role>
         </div>
         <img src={info.Photo.localFile.url} alt="photo" />
-      </div>
-      <div style={informStyles}>
-        <div style={maininfromStyles}>
-          <div style={itemStyles}>
-            <div style={subtitleStyles}>Experience</div>
-            <div style={baldinfoStyles}>{info.Exp_Role}</div>
+      </Header>
+      <Info>
+        <MainInfo>
+          <InfoItem>
+            <Subtitle>Experience</Subtitle>
+            <InfoName>{info.Exp_Role}</InfoName>
             <div>{info.Exp_Place}</div>
-            <div style={dateStyles}>{info.Exp_Date}</div>
-            <div>
-              {info.Exp_Portf}
-            </div>
-          </div>
-          <div style={itemStyles}>
-            <div style={subtitleStyles}>Courses and training</div>
-            <div style={baldinfoStyles}>{info.Courses_Name}</div>
+            <InfoDate>{info.Exp_Date}</InfoDate>
+            <div>{info.Exp_Portf}</div>
+          </InfoItem>
+          <InfoItem>
+            <Subtitle>Courses and training</Subtitle>
+            <InfoName>{info.Courses_Name}</InfoName>
             <div>{info.Courses_Place}</div>
-            <div style={dateStyles}>{info.Courses_Date}</div>
-          </div>
-          <div style={itemStyles}>
-            <div style={subtitleStyles}>education</div>
-            <div style={baldinfoStyles}>{info.Education_Name1}</div>
+            <InfoDate>{info.Courses_Date}</InfoDate>
+          </InfoItem>
+          <InfoItem>
+            <Subtitle>education</Subtitle>
+            <InfoName>{info.Education_Name1}</InfoName>
             <div>{info.Education_Place1}</div>
-            <div style={dateStyles}>{info.Education_Date1}</div>
-            <div style={baldinfoStyles}>{info.Education_Name2}</div>
+            <InfoDate>{info.Education_Date1}</InfoDate>
+            <InfoName>{info.Education_Name2}</InfoName>
             <div>{info.Education_Place2}</div>
-            <div style={dateStyles}>{info.Education_Date2}</div>
-          </div>
-        </div>
-        <div style={extrainfromStyles}>
-          <div style={extraitemStyles}>
-          <div style={extrasubtStyles}>Tools & Technologies</div>
-          {info.Tools}
-          </div>
-          <div style={extraitemStyles}>
-          <div style={extrasubtStyles}>Languages</div>
-          {info.Languages}
-          </div>
-          <div style={extraitemStyles}>
-          <div style={extrasubtStyles}>Extra Skills</div>
-          {info.Extra_skills}
-          </div>
-        </div>
-      </div>
-    </main>
+            <InfoDate>{info.Education_Date2}</InfoDate>
+          </InfoItem>
+        </MainInfo>
+        <ExtraInfo>
+          <ExtraInfoItem>
+            <ExtraInfoItemSubtitle>Tools & Technologies</ExtraInfoItemSubtitle>
+            {info.Tools}
+          </ExtraInfoItem>
+          <ExtraInfoItem>
+            <ExtraInfoItemSubtitle>Languages</ExtraInfoItemSubtitle>
+            {info.Languages}
+          </ExtraInfoItem>
+          <ExtraInfoItem>
+            <ExtraInfoItemSubtitle>Extra Skills</ExtraInfoItemSubtitle>
+            {info.Extra_skills}
+          </ExtraInfoItem>
+        </ExtraInfo>
+      </Info>
+    </Page>
   );
 };
 
