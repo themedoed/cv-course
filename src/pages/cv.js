@@ -1,7 +1,7 @@
 import * as React from "react";
 import { StaticQuery, graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
-import WebFont from "webfontloader";
+
 import Header from "../components/header";
 import InfoItem from "../components/info_item";
 import ExtraInfoItem from "../components/extrainfo_item";
@@ -33,12 +33,6 @@ const IndexPage = () => {
     }
   `);
   let info = allStrapiVova.nodes[0];
-
-  WebFont.load({
-    google: {
-      families: ["Inter"],
-    },
-  });
 
   const Page = styled.div`
     font-family: "Inter";
