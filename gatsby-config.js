@@ -12,7 +12,7 @@ module.exports = {
   {
     resolve: "gatsby-source-strapi", 
     options: {
-      apiURL: "https://strapi.pro.atlas-ilya.ru/",
+      apiURL: "https://strapi.pro.atlas-ilya.online/",
       collectiomTypes: [],
       singleTypes: ["vova"],
       queryLimit: 1000,
