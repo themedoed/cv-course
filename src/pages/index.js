@@ -2,14 +2,8 @@ import * as React from "react";
 import styled from "styled-components";
 import Header from "../components/header";
 import NavBtn from "../components/nav_btn";
-import WebFont from "webfontloader";
 
 const IndexPage = () => {
-  WebFont.load({
-    google: {
-      families: ["Inter"],
-    },
-  });
 
   const Page = styled.div`
     font-family: "Inter";
